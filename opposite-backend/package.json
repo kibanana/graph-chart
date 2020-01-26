@@ -1,0 +1,28 @@
+{
+  "name": "opposite-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyw017763/opposite-visualization.git"
+  },
+  "author": "Woni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyw017763/opposite-visualization/issues"
+  },
+  "homepage": "https://github.com/kyw017763/opposite-visualization#readme",
+  "dependencies": {
+    "apollo-server": "^2.9.16",
+    "apollo-server-lambda": "^2.9.16",
+    "axios": "^0.19.2",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  }
+}
