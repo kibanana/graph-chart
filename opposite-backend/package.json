@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/kyw017763/opposite-visualization#readme",
   "dependencies": {
-    "apollo-server": "^2.9.16",
-    "apollo-server-lambda": "^2.9.16",
+    "@types/node-fetch": "^2.5.4",
     "axios": "^0.19.2",
+    "graphql-yoga": "^1.18.3",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {

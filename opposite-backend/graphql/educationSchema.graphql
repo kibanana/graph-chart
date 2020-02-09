@@ -1,0 +1,25 @@
+type Query {
+  getPreSchool(year: String!): String,
+  getElementarySchool(year: String!): String,
+  getMiddleSchool(year: String!): String,
+  getPrivateMiddleSchool(year: String!): String,
+  getAdvancedSchoolEntranceRate(year: String!): String,
+  getSeoulSchoolStatistics(year: String!): String,
+  getClassStudentNum(year: String!): String,
+  getTeacherStudentNum(year: String!): String,
+  getUniversity(year: String!): String,
+  getGraduateSchool(year: String!): String,
+}
+
+# type Query {
+#   getPreSchool(year: String!): [PreSchool],
+#   getElementarySchool(year: String!): [ElementarySchool],
+#   getMiddleSchool(year: String!): [MiddleSchool],
+#   getPrivateMiddleSchool(year: String!): [PrivateMiddleSchool],
+#   getAdvancedSchoolEntranceRate(year: String!): [AdvancedSchoolEntranceRate],
+#   getSeoulSchoolStatistics(year: String!): [SeoulSchoolStatistics],
+#   getClassStudentNum(year: String!): [ClassStudentNum],
+#   getTeacherStudentNum(year: String!): [TeacherStudentNum],
+#   getUniversity(year: String!): [University],
+#   getGraduateSchool(year: String!): [GraduateSchool],
+# }
