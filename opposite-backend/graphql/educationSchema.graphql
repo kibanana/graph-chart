@@ -1,207 +1,207 @@
 type PreSchool {
-  period: Number
+  period: Int
   district: String
-  schoolNum: Number
-  classNum: Number
-  classRoomNum: Number
-  studentNum: Number
-  studentMaleNum: Number
-  studentFemaleNum: Number
-  teacherNum: Number
-  teacherMaleNum: Number
-  teacherFemaleNum: Number
-  clericalWorker: Number
-  clericalMaleNum: Number
-  clericalFemaleNum: Number
-  newStudentNum: Number
-  newStudentMaleNum: Number
-  newStudentFemaleNum: Number
-  reStudentNum: Number
-  reStudentMaleNum: Number
-  reStudentFemaleNum: Number
-  graduationStudentNum: Number
-  graduationStudentMaleNum: Number
-  graduationStudentFemaleNum: Number
+  schoolNum: Int
+  classNum: Int
+  classRoomNum: Int
+  studentNum: Int
+  studentMaleNum: Int
+  studentFemaleNum: Int
+  teacherNum: Int
+  teacherMaleNum: Int
+  teacherFemaleNum: Int
+  clericalWorkerNum: Int
+  clericalMaleNum: Int
+  clericalFemaleNum: Int
+  newStudentNum: Int
+  newStudentMaleNum: Int
+  newStudentFemaleNum: Int
+  reStudentNum: Int
+  reStudentMaleNum: Int
+  reStudentFemaleNum: Int
+  graduationStudentNum: Int
+  graduationStudentMaleNum: Int
+  graduationStudentFemaleNum: Int
 }
 type ElementarySchool {
-  period: Number
+  period: Int
   district: String
-  schoolNum: Number
-  classNum: Number
-  classRoomNum: Number
-  studentNum: Number
-  studentMaleNum: Number
-  studentFemaleNum: Number
-  teacherNum: Number
-  teacherMaleNum: Number
-  teacherFemaleNum: Number
-  employeeNum: Number
-  employeeMaleNum: Number
-  employeeFemaleNum: Number
-  newStudentNum: Number
-  graduationStudentNum: Number
-  higherLearningStudentNum: Number
+  schoolNum: Int
+  classNum: Int
+  classRoomNum: Int
+  studentNum: Int
+  studentMaleNum: Int
+  studentFemaleNum: Int
+  teacherNum: Int
+  teacherMaleNum: Int
+  teacherFemaleNum: Int
+  employeeNum: Int
+  employeeMaleNum: Int
+  employeeFemaleNum: Int
+  newStudentNum: Int
+  graduationStudentNum: Int
+  higherLearningStudentNum: Int
 }
 type MiddleSchool {
-  period: Number
+  period: Int
   district: String
-  schoolNum: Number
-  classNum: Number
-  classRoomNum: Number
-  studentNum: Number
-  studentMaleNum: Number
-  studentFemaleNum: Number
-  teacherNum: Number
-  teacherMaleNum: Number
-  teacherFemaleNum: Number
-  employeeNum: Number
-  employeeMaleNum: Number
-  employeeFemaleNum: Number
-  newStudentNum: Number
-  graduationStudentNum: Number
-  higherLearningStudentNum: Number
+  schoolNum: Int
+  classNum: Int
+  classRoomNum: Int
+  studentNum: Int
+  studentMaleNum: Int
+  studentFemaleNum: Int
+  teacherNum: Int
+  teacherMaleNum: Int
+  teacherFemaleNum: Int
+  employeeNum: Int
+  employeeMaleNum: Int
+  employeeFemaleNum: Int
+  newStudentNum: Int
+  graduationStudentNum: Int
+  higherLearningStudentNum: Int
 }
 type PrivateMiddleSchool {
-  period: Number
+  period: Int
   district: String
-  schoolNum: Number
-  classNum: Number
-  classRoomNum: Number
-  studentNum: Number
-  studentMaleNum: Number
-  studentFemaleNum: Number
-  teacherNum: Number
-  teacherMaleNum: Number
-  teacherFemaleNum: Number
-  employeeNum: Number
-  employeeMaleNum: Number
-  employeeFemaleNum: Number
-  newStudentNum: Number
-  graduationStudentNum: Number
-  higherLearningStudentNum: Number
+  schoolNum: Int
+  classNum: Int
+  classRoomNum: Int
+  studentNum: Int
+  studentMaleNum: Int
+  studentFemaleNum: Int
+  teacherNum: Int
+  teacherMaleNum: Int
+  teacherFemaleNum: Int
+  employeeNum: Int
+  employeeMaleNum: Int
+  employeeFemaleNum: Int
+  newStudentNum: Int
+  graduationStudentNum: Int
+  higherLearningStudentNum: Int
 }
 type AdvancedSchoolEntranceRate {
-  period: Number
+  period: Int
   district: String
-  totalGraduationStudentNum: Number
-  totalHigherLearningStudentNum: Number
+  totalGraduationStudentNum: Int
+  totalHigherLearningStudentNum: Int
   totalHigherLearningStudentRate: Float
-  totalEmploymentStudentNum: Number
-  totalEtcStudentNum: Number
+  totalEmploymentStudentNum: Int
+  totalEtcStudentNum: Int
 
-  generalGraduationStudentNum: Number
-  generalHigherLearningStudentNum: Number
+  generalGraduationStudentNum: Int
+  generalHigherLearningStudentNum: Int
   generalHigherLearningStudentRate: Float
-  generalEmploymentStudentNum: Number
-  generalEtcStudentNum: Number
+  generalEmploymentStudentNum: Int
+  generalEtcStudentNum: Int
 
-  specialGraduationStudentNum: Number
-  specialHigherLearningStudentNum: Number
+  specialGraduationStudentNum: Int
+  specialHigherLearningStudentNum: Int
   specialHigherLearningStudentRate: Float
-  specialEmploymentStudentNum: Number
-  specialEtcStudentNum: Number
+  specialEmploymentStudentNum: Int
+  specialEtcStudentNum: Int
 
-  characterizationGraduationStudentNum: Number
-  characterizationHigherLearningStudentNum: Number
+  characterizationGraduationStudentNum: Int
+  characterizationHigherLearningStudentNum: Int
   characterizationHigherLearningStudentRate: Float
-  characterizationEmploymentStudentNum: Number
-  characterizationEtcStudentNum: Number
+  characterizationEmploymentStudentNum: Int
+  characterizationEtcStudentNum: Int
 
-  autonomyGraduationStudentNum: Number
-  autonomyHigherLearningStudentNum: Number
+  autonomyGraduationStudentNum: Int
+  autonomyHigherLearningStudentNum: Int
   autonomyHigherLearningStudentRate: Float
-  autonomyEmploymentStudentNum: Number
-  autonomyEtcStudentNum: Number
+  autonomyEmploymentStudentNum: Int
+  autonomyEtcStudentNum: Int
 }
 type SeoulSchoolStatistics {
-  period: Number
+  period: Int
   parentType: String
   subType: String
-  schoolNum: Number
-  classNum: Number
-  classRoomNum: Number
+  schoolNum: Int
+  classNum: Int
+  classRoomNum: Int
   
-  studentNum: Number
-  studentMaleNum: Number
-  studentFemaleNum: Number
+  studentNum: Int
+  studentMaleNum: Int
+  studentFemaleNum: Int
 
-  parentNum: Number
-  subTeacherNum: Number
-  subTeacheMaleNum: Number
-  subTeacheFemaleNum: Number
-  subEmployeeNum: Number
-  subEmployeeMaleNum: Number
-  subEmployeeFemaleNum: Number
+  parentNum: Int
+  subTeacherNum: Int
+  subTeacheMaleNum: Int
+  subTeacheFemaleNum: Int
+  subEmployeeNum: Int
+  subEmployeeMaleNum: Int
+  subEmployeeFemaleNum: Int
 
   studentNumPerTeacher: Float
 }
 type ClassStudentNum {
-  period: Number
+  period: Int
   district: String
 
-  preschoolStudentNum: Number
-  preschoolClassNum: Number
+  preschoolStudentNum: Int
+  preschoolClassNum: Int
   preschoolStudentPerClass: Float
 
-  elementarySchoolStudentNum: Number
-  elementarySchoolClassNum: Number
+  elementarySchoolStudentNum: Int
+  elementarySchoolClassNum: Int
   elementarySchoolStudentPerClass: Float
   
-  middleSchoolStudentNum: Number
-  middleSchoolClassNum: Number
+  middleSchoolStudentNum: Int
+  middleSchoolClassNum: Int
   middleSchoolStudentPerClass: Float
 
-  highSchoolStudentNum: Number
-  highSchoolClassNum: Number
+  highSchoolStudentNum: Int
+  highSchoolClassNum: Int
   highSchoolStudentPerClass: Float
 }
 type University {
-  period: Number
-  universityNum: Number
-  departmentNum: Number
-  studentNum: Number
-  studentMaleNum: Number
-  studentFemaleNum: Number
-  teacherNum: Number
-  teacheFemaleNum: Number
-  employeeNum: Number
-  employeeFemaleNum: Number
-  graduateStudentNum: Number
-  highLearningStudentNum: Number
-  employeeStudentNum: Number
-  recruitStudentNum: Number
-  newApplicantNum: Number
-  newStudentNum: Number
+  period: Int
+  universityNum: Int
+  departmentNum: Int
+  studentNum: Int
+  studentMaleNum: Int
+  studentFemaleNum: Int
+  teacherNum: Int
+  teacheFemaleNum: Int
+  employeeNum: Int
+  employeeFemaleNum: Int
+  graduateStudentNum: Int
+  highLearningStudentNum: Int
+  employeeStudentNum: Int
+  recruitStudentNum: Int
+  newApplicantNum: Int
+  newStudentNum: Int
 }
 type GraduateSchool {
-  period: Number
-  graduateSchoolNum: Number
+  period: Int
+  graduateSchoolNum: Int
 
-  masterDepartmentNum: Number
-  doctorDepartmentNum: Number
+  masterDepartmentNum: Int
+  doctorDepartmentNum: Int
   
-  entranceMasterNum: Number
-  entranceDoctorNum: Number
+  entranceMasterNum: Int
+  entranceDoctorNum: Int
 
-  masterNum: Number
-  masterFemaleNum: Number
-  doctorNum: Number
-  doctorFemaleNum: Number
+  masterNum: Int
+  masterFemaleNum: Int
+  doctorNum: Int
+  doctorFemaleNum: Int
 
-  teacherNum: Number
-  teacherFemaleNum: Number
-  employeeNum: Number
-  employeeFemaleNum: Number
+  teacherNum: Int
+  teacherFemaleNum: Int
+  employeeNum: Int
+  employeeFemaleNum: Int
 
-  masterGraduateStudentNum: Number
-  masterGraduateStudentFemaleNum: Number
-  doctorGraduateStudentNum: Number
-  doctorGraduateStudentFemaleNum: Number
+  masterGraduateStudentNum: Int
+  masterGraduateStudentFemaleNum: Int
+  doctorGraduateStudentNum: Int
+  doctorGraduateStudentFemaleNum: Int
 
-  masterEntranceStudentNum: Number
-  masterEntranceStudentFemaleNum: Number
-  doctorEntranceStudentNum: Number
-  doctorEntranceStudentFemaleNum: Number
+  masterEntranceStudentNum: Int
+  masterEntranceStudentFemaleNum: Int
+  doctorEntranceStudentNum: Int
+  doctorEntranceStudentFemaleNum: Int
 }
 
 type Query {

@@ -11,7 +11,6 @@ export const getPreSchool = async (year: string) => {
   
   return parser.parseStringPromise(xmlData)
     .then((result) => {
-      console.log(JSON.stringify(result));
       return JSON.stringify(result);
     });
 }
