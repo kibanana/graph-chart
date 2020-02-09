@@ -18,9 +18,11 @@
   "homepage": "https://github.com/kyw017763/opposite-visualization#readme",
   "dependencies": {
     "@types/node-fetch": "^2.5.4",
+    "@types/xml2js": "^0.4.5",
     "axios": "^0.19.2",
     "graphql-yoga": "^1.18.3",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "typescript": "^3.7.5"

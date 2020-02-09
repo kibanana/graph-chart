@@ -1,63 +1,97 @@
 import fetch from 'node-fetch';
 import * as config from './educationConfig';
+import { Parser } from 'xml2js';
+
+const parser = new Parser();
 
 export const getPreSchool = async (year: string) => {
-  await fetch(config.preSchoolUrl + '/' + year)
+  const xmlData = await fetch(config.preSchoolUrl + '/' + year)
     .then(response => response.text())
-    .then(data => console.log(data))
-  return 'Finish getting data';
+    .then(data => data);
+  
+  return parser.parseStringPromise(xmlData)
+    .then((result) => {
+      console.log(JSON.stringify(result));
+      return JSON.stringify(result);
+    });
 }
 export const getElementarySchool = async (year: string) => {
-  await fetch(config.elementarySchoolUrl + '/' + year)
+  const xmlData = await fetch(config.elementarySchoolUrl + '/' + year)
     .then(response => response.text())
-    .then(data => console.log(data))
-  return 'Finish getting data';
+    .then(data => data);
+  
+  return parser.parseStringPromise(xmlData)
+    .then((result) => {
+      return JSON.stringify(result);
+    });
 }
 export const getMiddleSchool = async (year: string) => {
-  await fetch(config.middleSchoolUrl + '/' + year)
+  const xmlData = await fetch(config.middleSchoolUrl + '/' + year)
     .then(response => response.text())
-    .then(data => console.log(data))
-  return 'Finish getting data';
+    .then(data => data);
+  
+  return parser.parseStringPromise(xmlData)
+    .then((result) => {
+      return JSON.stringify(result);
+    });
 }
 export const getPrivateMiddleSchool = async (year: string) => {
-  await fetch(config.privateMiddleSchoolUrl + '/' + year)
+  const xmlData = await fetch(config.privateMiddleSchoolUrl + '/' + year)
     .then(response => response.text())
-    .then(data => console.log(data))
-  return 'Finish getting data';
+    .then(data => data);
+  
+  return parser.parseStringPromise(xmlData)
+    .then((result) => {
+      return JSON.stringify(result);
+    });
 }
 export const getAdvancedSchoolEntranceRate = async (year: string) => {
-  await fetch(config.advancedSchoolEntranceRateUrl + '/' + year)
+  const xmlData = await fetch(config.advancedSchoolEntranceRateUrl + '/' + year)
     .then(response => response.text())
-    .then(data => console.log(data))
-  return 'Finish getting data';
+    .then(data => data);
+  
+  return parser.parseStringPromise(xmlData)
+    .then((result) => {
+      return JSON.stringify(result);
+    });
 }
 export const getSeoulSchoolStatistics = async (year: string) => {
-  await fetch(config.seoulSchoolStatisticsUrl + '/' + year)
+  const xmlData = await fetch(config.seoulSchoolStatisticsUrl + '/' + year)
     .then(response => response.text())
-    .then(data => console.log(data))
-  return 'Finish getting data';
+    .then(data => data);
+  
+  return parser.parseStringPromise(xmlData)
+    .then((result) => {
+      return JSON.stringify(result);
+    });
 }
 export const getClassStudentNum = async (year: string) => {
-  await fetch(config.classStudentNumUrl + '/' + year)
+  const xmlData = await fetch(config.classStudentNumUrl + '/' + year)
     .then(response => response.text())
-    .then(data => console.log(data))
-  return 'Finish getting data';
-}
-export const getTeacherStudentNum = async (year: string) => {
-  await fetch(config.teacherStudentNumUrl + '/' + year)
-    .then(response => response.text())
-    .then(data => console.log(data))
-  return 'Finish getting data';
+    .then(data => data);
+  
+  return parser.parseStringPromise(xmlData)
+    .then((result) => {
+      return JSON.stringify(result);
+    });
 }
 export const getUniversity = async (year: string) => {
-  await fetch(config.universityUrl + '/' + year)
+  const xmlData = await fetch(config.universityUrl + '/' + year)
     .then(response => response.text())
-    .then(data => console.log(data))
-  return 'Finish getting data';
+    .then(data => data);
+
+  return parser.parseStringPromise(xmlData)
+    .then((result) => {
+      return JSON.stringify(result);
+    });
 }
 export const getGraduateSchool = async (year: string) => {
-  await fetch(config.graduateSchoolUrl + '/' + year)
+  const xmlData = await fetch(config.graduateSchoolUrl + '/' + year)
     .then(response => response.text())
-    .then(data => console.log(data))
-  return 'Finish getting data';
+    .then(data => data);
+  
+  return parser.parseStringPromise(xmlData)
+    .then((result) => {
+      return JSON.stringify(result);
+    });
 }
