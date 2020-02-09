@@ -38,7 +38,6 @@ type ElementarySchool {
   employeeNum: Int
   employeeMaleNum: Int
   employeeFemaleNum: Int
-  newStudentNum: Int
   graduationStudentNum: Int
   higherLearningStudentNum: Int
 }
@@ -52,10 +51,8 @@ type MiddleSchool {
   studentMaleNum: Int
   studentFemaleNum: Int
   teacherNum: Int
-  teacherMaleNum: Int
   teacherFemaleNum: Int
   employeeNum: Int
-  employeeMaleNum: Int
   employeeFemaleNum: Int
   newStudentNum: Int
   graduationStudentNum: Int
@@ -71,10 +68,8 @@ type PrivateMiddleSchool {
   studentMaleNum: Int
   studentFemaleNum: Int
   teacherNum: Int
-  teacherMaleNum: Int
   teacherFemaleNum: Int
   employeeNum: Int
-  employeeMaleNum: Int
   employeeFemaleNum: Int
   newStudentNum: Int
   graduationStudentNum: Int
@@ -157,13 +152,15 @@ type ClassStudentNum {
 }
 type University {
   period: Int
+  district: String
+
   universityNum: Int
   departmentNum: Int
   studentNum: Int
   studentMaleNum: Int
   studentFemaleNum: Int
   teacherNum: Int
-  teacheFemaleNum: Int
+  teacherFemaleNum: Int
   employeeNum: Int
   employeeFemaleNum: Int
   graduateStudentNum: Int
@@ -194,9 +191,7 @@ type GraduateSchool {
   employeeFemaleNum: Int
 
   masterGraduateStudentNum: Int
-  masterGraduateStudentFemaleNum: Int
   doctorGraduateStudentNum: Int
-  doctorGraduateStudentFemaleNum: Int
 
   masterEntranceStudentNum: Int
   masterEntranceStudentFemaleNum: Int
