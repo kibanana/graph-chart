@@ -48,14 +48,15 @@ const resolvers = {
     },
     getElementarySchool: async (_parent: any, { year }: any) => {
       const convertedResult = await getElementarySchool(year);
-      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi200']['row'];
+      console.log(JSON.parse(convertedResult)['octastatapi201']['row']);
+      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi201']['row'];
       
       const graphqlResult: any[] = [];
       convertedTempResult.forEach(elem => {
         graphqlResult.push({
           period: Number(elem['GIGAN'][0]),
           district: elem['JACHIGU'][0],
-          schoolNum: Number(elem['WONSU'][0]),
+          schoolNum: Number(elem['HAKGYOSU'][0]),
           classNum: Number(elem['HAKGEUPSU'][0]),
           classRoomNum: Number(elem['GYOSILSU'][0]),
           studentNum: Number(elem['GYE_1'][0]),
@@ -75,7 +76,8 @@ const resolvers = {
     },
     getMiddleSchool: async (_parent: any, { year }: any) => {
       const convertedResult = await getMiddleSchool(year);
-      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi200']['row'];
+      console.log(convertedResult);
+      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi202']['row'];
       
       const graphqlResult: any[] = [];
       convertedTempResult.forEach(elem => {
@@ -101,7 +103,7 @@ const resolvers = {
     },
     getPrivateMiddleSchool: async (_parent: any, { year }: any) => {
       const convertedResult = await getPrivateMiddleSchool(year);
-      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi200']['row'];
+      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi203']['row'];
       
       const graphqlResult: any[] = [];
       convertedTempResult.forEach(elem => {
@@ -127,7 +129,8 @@ const resolvers = {
     },
     getAdvancedSchoolEntranceRate: async (_parent: any, { year }: any) => {
       const convertedResult = await getAdvancedSchoolEntranceRate(year);
-      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi200']['row'];
+      console.log(convertedResult);
+      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi197']['row'];
       
       const graphqlResult: any[] = [];
       convertedTempResult.forEach(elem => {
@@ -169,7 +172,8 @@ const resolvers = {
     },
     getSeoulSchoolStatistics: async (_parent: any, { year }: any) => {
       const convertedResult = await getSeoulSchoolStatistics(year);
-      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi200']['row'];
+      console.log(convertedResult);
+      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi199']['row'];
       
       const graphqlResult: any[] = [];
       convertedTempResult.forEach(elem => {
@@ -200,7 +204,8 @@ const resolvers = {
     },
     getClassStudentNum: async (_parent: any, { year }: any) => {
       const convertedResult = await getClassStudentNum(year);
-      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi200']['row'];
+      console.log(convertedResult);
+      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi542']['row'];
       
       const graphqlResult: any[] = [];
       convertedTempResult.forEach(elem => {
@@ -229,7 +234,8 @@ const resolvers = {
     },
     getUniversity: async (_parent: any, { year }: any) => {
       const convertedResult = await getUniversity(year);
-      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi200']['row'];
+      console.log(convertedResult);
+      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi210']['row'];
       
       const graphqlResult: any[] = [];
       convertedTempResult.forEach(elem => {
@@ -250,14 +256,15 @@ const resolvers = {
           employeeStudentNum:Number(elem['CHWIEOPJASU'][0]),
           recruitStudentNum: Number(elem['IPDAEJASU'][0]),
           newApplicantNum: Number(elem['IPHAKJIWONJASU'][0]),
-          newStudentNum: Number(elem['IPHAKJASU	'][0]),
+          newStudentNum: Number(elem['IPHAKJASU'][0]),
         });
       });
       return graphqlResult;
     },
     getGraduateSchool: async (_parent: any, { year }: any) => {
       const convertedResult = await getGraduateSchool(year);
-      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi200']['row'];
+      console.log(convertedResult);
+      const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi211']['row'];
       
       const graphqlResult: any[] = [];
       convertedTempResult.forEach(elem => {
