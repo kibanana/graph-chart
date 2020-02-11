@@ -1,3 +1,6 @@
+import { gql } from 'apollo-server';
+
+export default gql`
 type PreSchool {
   period: Int
   district: String
@@ -210,3 +213,4 @@ type Query {
   getUniversity(year: String!): [University],
   getGraduateSchool(year: String!): [GraduateSchool],
 }
+`;
