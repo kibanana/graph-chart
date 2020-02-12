@@ -1,24 +1,22 @@
 import * as React from 'react';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
+import apolloClient from './apolloClient';
 import './App.css';
+import { Education } from './Education';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={apolloClient}>
+      <ApolloHooksProvider client={apolloClient}>
+        <Router>
+          <React.Fragment>
+            <Route exact={true} path={'/'} component={Education} />
+          </React.Fragment>
+        </Router>
+      </ApolloHooksProvider>
+    </ApolloProvider>
   );
 }
 
