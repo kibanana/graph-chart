@@ -5,7 +5,7 @@ import { Parser } from 'xml2js';
 const parser = new Parser();
 
 export const getPreSchool = async (year: string) => {
-  const xmlData = await fetch(config.preSchoolUrl + '/' + year)
+  const xmlData = await fetch(config.preSchoolUrl + year)
     .then(response => response.text())
     .then(data => data);
   
@@ -15,7 +15,7 @@ export const getPreSchool = async (year: string) => {
     });
 }
 export const getElementarySchool = async (year: string) => {
-  const xmlData = await fetch(config.elementarySchoolUrl + '/' + year)
+  const xmlData = await fetch(config.elementarySchoolUrl + year)
     .then(response => response.text())
     .then(data => data);
   
@@ -25,7 +25,7 @@ export const getElementarySchool = async (year: string) => {
     });
 }
 export const getMiddleSchool = async (year: string) => {
-  const xmlData = await fetch(config.middleSchoolUrl + '/' + year)
+  const xmlData = await fetch(config.middleSchoolUrl + year)
     .then(response => response.text())
     .then(data => data);
   
@@ -35,7 +35,7 @@ export const getMiddleSchool = async (year: string) => {
     });
 }
 export const getPrivateMiddleSchool = async (year: string) => {
-  const xmlData = await fetch(config.privateMiddleSchoolUrl + '/' + year)
+  const xmlData = await fetch(config.privateMiddleSchoolUrl + year)
     .then(response => response.text())
     .then(data => data);
   
@@ -45,7 +45,7 @@ export const getPrivateMiddleSchool = async (year: string) => {
     });
 }
 export const getAdvancedSchoolEntranceRate = async (year: string) => {
-  const xmlData = await fetch(config.advancedSchoolEntranceRateUrl + '/' + year)
+  const xmlData = await fetch(config.advancedSchoolEntranceRateUrl + year)
     .then(response => response.text())
     .then(data => data);
   
@@ -55,7 +55,7 @@ export const getAdvancedSchoolEntranceRate = async (year: string) => {
     });
 }
 export const getSeoulSchoolStatistics = async (year: string) => {
-  const xmlData = await fetch(config.seoulSchoolStatisticsUrl + '/' + year)
+  const xmlData = await fetch(config.seoulSchoolStatisticsUrl + year)
     .then(response => response.text())
     .then(data => data);
   
@@ -65,7 +65,7 @@ export const getSeoulSchoolStatistics = async (year: string) => {
     });
 }
 export const getClassStudentNum = async (year: string) => {
-  const xmlData = await fetch(config.classStudentNumUrl + '/' + year)
+  const xmlData = await fetch(config.classStudentNumUrl + year)
     .then(response => response.text())
     .then(data => data);
   
@@ -75,7 +75,7 @@ export const getClassStudentNum = async (year: string) => {
     });
 }
 export const getUniversity = async (year: string) => {
-  const xmlData = await fetch(config.universityUrl + '/' + year)
+  const xmlData = await fetch(config.universityUrl + year)
     .then(response => response.text())
     .then(data => data);
 
@@ -85,7 +85,7 @@ export const getUniversity = async (year: string) => {
     });
 }
 export const getGraduateSchool = async (year: string) => {
-  const xmlData = await fetch(config.graduateSchoolUrl + '/' + year)
+  const xmlData = await fetch(config.graduateSchoolUrl + year)
     .then(response => response.text())
     .then(data => data);
   

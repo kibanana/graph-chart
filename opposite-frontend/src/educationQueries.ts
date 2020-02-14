@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 // 유치원
 export const preSchool = gql`
 query getpreSchool($year: String!) {
-  getPreSchool(year: $year) {
+  data: getPreSchool(year: $year) {
     period
     district
     schoolNum
@@ -33,7 +33,7 @@ query getpreSchool($year: String!) {
 // 초등학교
 export const elementarySchool = gql`
 query getElementarySchool($year: String!) {
-  getElementarySchool(year: $year) {
+  data: getElementarySchool(year: $year) {
    	period
     district
     schoolNum
@@ -52,7 +52,7 @@ query getElementarySchool($year: String!) {
 // 중학교
 export const middleSchool = gql`
 query getMiddleSchool($year: String!) {
-  getMiddleSchool(year: $year) {
+  data: getMiddleSchool(year: $year) {
     period
     district
     schoolNum
@@ -74,7 +74,7 @@ query getMiddleSchool($year: String!) {
 // 사립중학교
 export const privateMiddleSchool = gql`
 query getprivateMiddleSchool($year: String!) {
-  getPrivateMiddleSchool(year: $year) {
+  data: getPrivateMiddleSchool(year: $year) {
     period
     district
     schoolNum
@@ -96,7 +96,7 @@ query getprivateMiddleSchool($year: String!) {
 // 상급학교 진학률
 export const advancedSchoolEntranceRate = gql`
 query AdvancedSchoolEntranceRate($year: String!) {
-  getAdvancedSchoolEntranceRate(year: $year) {
+  data: getAdvancedSchoolEntranceRate(year: $year) {
     period
     district
     totalGraduationStudentNum
@@ -128,7 +128,7 @@ query AdvancedSchoolEntranceRate($year: String!) {
 // 서울시 학교 총괄 통계
 export const seoulSchoolStatistics = gql`
 query getSeoulSchoolStatistics($year: String!) {
-  getSeoulSchoolStatistics(year: $year) {
+  data: getSeoulSchoolStatistics(year: $year) {
    	period
     parentType
     subType
@@ -152,7 +152,7 @@ query getSeoulSchoolStatistics($year: String!) {
 // 학급당 학생수
 export const classStudentNum = gql`
 query getClassStudentNum($year: String!) {
-  getClassStudentNum(year: $year) {
+  data: getClassStudentNum(year: $year) {
    	period
     district
     preschoolStudentNum
@@ -173,7 +173,7 @@ query getClassStudentNum($year: String!) {
 // 대학교
 export const university = gql`
 query getUniversity($year: String!) {
-  getUniversity(year: $year) {
+  data: getUniversity(year: $year) {
     period
     universityNum
     departmentNum
@@ -196,7 +196,7 @@ query getUniversity($year: String!) {
 // 대학원
 export const graduateSchool = gql`
 query getGraduateSchool($year: String!) {
-  getGraduateSchool(year: $year) {
+  data: getGraduateSchool(year: $year) {
    period
     graduateSchoolNum
     masterDepartmentNum
