@@ -1,9 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import * as queries from './educationQueries';
 import './Education.css';
+import YearSelect from './yearSelect';
 var toastui = require('@toast-ui/react-chart');
 var BarChart = toastui.BarChart;
 var LineChart = toastui.LineChart;
@@ -28,12 +30,13 @@ const queriesArr = [
 ];
 
 function Education (this: any) {
+  let { year } = useParams();
   const options = {
     chart: {
           width: 1160,
           height: 3000,
-          title: 'getPreSchool',
-          format: '1,000'
+          title: `서울시 유치원 통계 (${year})`,
+          format: '1,000,000'
       },
       yAxis: {
           title: '종류'
@@ -48,13 +51,13 @@ function Education (this: any) {
   };
   
   const { data, error, loading } = useQuery(queries.preSchool, {
-    variables: { year: '2017'},
+    variables: { year: year || '2018'},
     fetchPolicy: 'cache-and-network',
   });
 
-  if (loading) return <span>Loading</span>;
-
-  if (!loading && data && data['data'].length) {
+  if (loading) {
+    return <span>Loading</span>;
+  } else if (!loading && data && data['data'].length) {
     const districtArr = data['data'].map((item: any) => item['district']);
     data['data'].map((item: any) => {
       delete item['period'];
@@ -79,16 +82,18 @@ function Education (this: any) {
           <title>Education : Society's Opposite Side Visualization</title>
         </Helmet>
         <React.Fragment>
-        <div className="title">Society's Opposite Side Visualization</div>
-        <div>
-          <BarChart data={dataField} options={options} />
-        </div>
+          <div className="title">Society's Opposite Side Visualization</div>
+          <YearSelect min="2016" max="2018" value={year || "2018"} />
+          <div>
+            <BarChart data={dataField} options={options} />
+          </div>
         </React.Fragment>
       </Container>
     );
+  } else {
+    console.log(error);
+    return <span>Something is wrong</span>;
   }
-
-  return <span>Something is wrong</span>;
 }
 
 export { Education };
