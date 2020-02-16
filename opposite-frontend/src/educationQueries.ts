@@ -1,7 +1,10 @@
 import gql from 'graphql-tag';
+import { DocumentNode } from 'graphql';
+
+const queriesArr: DocumentNode[] = [];
 
 // 유치원
-export const preSchool = gql`
+const preSchool = gql`
 query getpreSchool($year: String!) {
   data: getPreSchool(year: $year) {
     period
@@ -30,8 +33,9 @@ query getpreSchool($year: String!) {
   }
 }
 `;
+queriesArr.push(preSchool);
 // 초등학교
-export const elementarySchool = gql`
+const elementarySchool = gql`
 query getElementarySchool($year: String!) {
   data: getElementarySchool(year: $year) {
    	period
@@ -49,8 +53,9 @@ query getElementarySchool($year: String!) {
   }
 }
 `;
+queriesArr.push(elementarySchool);
 // 중학교
-export const middleSchool = gql`
+const middleSchool = gql`
 query getMiddleSchool($year: String!) {
   data: getMiddleSchool(year: $year) {
     period
@@ -71,8 +76,9 @@ query getMiddleSchool($year: String!) {
   }
 }
 `;
+queriesArr.push(middleSchool);
 // 사립중학교
-export const privateMiddleSchool = gql`
+const privateMiddleSchool = gql`
 query getprivateMiddleSchool($year: String!) {
   data: getPrivateMiddleSchool(year: $year) {
     period
@@ -93,8 +99,9 @@ query getprivateMiddleSchool($year: String!) {
   }
 }
 `;
+queriesArr.push(privateMiddleSchool);
 // 상급학교 진학률
-export const advancedSchoolEntranceRate = gql`
+const advancedSchoolEntranceRate = gql`
 query AdvancedSchoolEntranceRate($year: String!) {
   data: getAdvancedSchoolEntranceRate(year: $year) {
     period
@@ -125,8 +132,9 @@ query AdvancedSchoolEntranceRate($year: String!) {
   }
 }
 `;
+queriesArr.push(advancedSchoolEntranceRate);
 // 서울시 학교 총괄 통계
-export const seoulSchoolStatistics = gql`
+const seoulSchoolStatistics = gql`
 query getSeoulSchoolStatistics($year: String!) {
   data: getSeoulSchoolStatistics(year: $year) {
    	period
@@ -149,8 +157,9 @@ query getSeoulSchoolStatistics($year: String!) {
   }
 }
 `;
+queriesArr.push(seoulSchoolStatistics);
 // 학급당 학생수
-export const classStudentNum = gql`
+const classStudentNum = gql`
 query getClassStudentNum($year: String!) {
   data: getClassStudentNum(year: $year) {
    	period
@@ -170,8 +179,9 @@ query getClassStudentNum($year: String!) {
   }
 }
 `;
+queriesArr.push(classStudentNum);
 // 대학교
-export const university = gql`
+const university = gql`
 query getUniversity($year: String!) {
   data: getUniversity(year: $year) {
     period
@@ -193,8 +203,9 @@ query getUniversity($year: String!) {
   }
 }
 `;
+queriesArr.push(university);
 // 대학원
-export const graduateSchool = gql`
+const graduateSchool = gql`
 query getGraduateSchool($year: String!) {
   data: getGraduateSchool(year: $year) {
    period
@@ -220,3 +231,6 @@ query getGraduateSchool($year: String!) {
   }
 }
 `;
+queriesArr.push(graduateSchool);
+
+export default queriesArr;

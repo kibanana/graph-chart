@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import * as queries from './educationQueries';
+import queriesArr from './educationQueries';
 import './Education.css';
 import YearSelect from './yearSelect';
 var toastui = require('@toast-ui/react-chart');
@@ -17,16 +17,16 @@ const Container = styled.div`
   justify-items: center;
 `;
 
-const queriesArr = [
-  'getpreSchool',
-  'getElementarySchool',
-  'getMiddleSchool',
-  'getprivateMiddleSchool',
-  'AdvancedSchoolEntranceRate',
-  'getSeoulSchoolStatistics',
-  'getClassStudentNum',
-  'getUniversity',
-  'getGraduateSchool'
+const chartTitleArr = [
+  '서울시 유치원 통계',
+  '서울시 초등학교 통계',
+  '서울시 중학교 (국·공립) 통계',
+  '서울시 중학교 (사립) 통계',
+  '서울시 상급학교 진학률 통계',
+  '서울시 학교 총괄 통계',
+  '서울시 학급당 학생수 (구별) 통계',
+  '서울시 대학교 통계',
+  '서울시 대학원 통계',
 ];
 
 function Education (this: any) {
@@ -35,7 +35,7 @@ function Education (this: any) {
     chart: {
           width: 2000,
           height: 600,
-          title: `서울시 유치원 통계 (${year})`,
+          title: `${chartTitleArr[0]} (${year || '2018'})`,
       },
       yAxis: {
           title: '사람수, 개수',
@@ -61,7 +61,7 @@ function Education (this: any) {
     }
   };
   
-  const { data, error, loading } = useQuery(queries.preSchool, {
+  const { data, error, loading } = useQuery(queriesArr[0], {
     variables: { year: year || '2018'},
     fetchPolicy: 'cache-and-network',
   });
