@@ -43,14 +43,21 @@ function Education (this: any) {
       },
       xAxis: {
           title: '지역',
+          tickInterval: 'auto',
       },
       series: {
         spline: true,
         showDot: true,
+        zoomable: true,
       },
       tooltip: {
-          suffix: '명 (개)',
-      }
+        grouped: true,
+      },
+      // 밑 속성은 default기 때문에 지워도 동일하게 동작함
+      legend: {
+        showCheckbox: true,
+        visible: true,
+      },
   };
   const themeOption = {
     series: {
@@ -82,7 +89,7 @@ function Education (this: any) {
         return {
           name: itemName,
           data: data['data'].map((item: any) => {
-            return item[itemName] || 0;
+            return item[itemName];
           }),
         };
       }),
