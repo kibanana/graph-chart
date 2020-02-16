@@ -31,23 +31,34 @@ const queriesArr = [
 
 function Education (this: any) {
   let { year } = useParams();
-  const options = {
+  let options = {
     chart: {
-          width: 1160,
-          height: 3000,
+          width: 2000,
+          height: 600,
           title: `서울시 유치원 통계 (${year})`,
-          format: '1,000,000'
       },
       yAxis: {
-          title: '종류'
+          title: '사람수, 개수',
+          pointOnColumn: true,
       },
       xAxis: {
-          title: '사람수',
-          suffix: '명'
+          title: '지역',
       },
       series: {
-          showLabel: true
+        spline: true,
+        showDot: true,
+      },
+      tooltip: {
+          suffix: '명 (개)',
       }
+  };
+  const themeOption = {
+    series: {
+      colors: [
+          '#83b14e', '#458a3f', '#295ba0', '#2a4175', '#289399',
+          '#289399', '#617178', '#8a9a9a', '#516f7d', '#dddddd',
+      ]
+    }
   };
   
   const { data, error, loading } = useQuery(queries.preSchool, {
@@ -71,7 +82,7 @@ function Education (this: any) {
         return {
           name: itemName,
           data: data['data'].map((item: any) => {
-            return item[itemName];
+            return item[itemName] || 0;
           }),
         };
       }),
@@ -80,12 +91,14 @@ function Education (this: any) {
       <Container>
         <Helmet>
           <title>Education : Society's Opposite Side Visualization</title>
+          <link rel="stylesheet" href="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.css" />
+          <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js" />
         </Helmet>
         <React.Fragment>
           <div className="title">Society's Opposite Side Visualization</div>
           <YearSelect min="2016" max="2018" value={year || "2018"} />
           <div>
-            <BarChart data={dataField} options={options} />
+            <LineChart data={dataField} options={Object.assign(options, themeOption)} />
           </div>
         </React.Fragment>
       </Container>
