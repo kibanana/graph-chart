@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import queriesArr from './educationQueries';
+import educationAttr from './educationAttr';
 import './Education.css';
 import YearSelect from './yearSelect';
 const toastui = require('@toast-ui/react-chart');
@@ -88,7 +89,7 @@ function EducationLineChart (this: any, idx: number, year: string) {
           pointOnColumn: true,
       },
       xAxis: {
-          title: '지역',
+        title: '구분',
       },
       series: {
         spline: true,
@@ -96,6 +97,7 @@ function EducationLineChart (this: any, idx: number, year: string) {
         zoomable: true,
       },
       tooltip: {
+        suffix: '명 (개)',
         grouped: true,
       },
       // 밑 속성은 default기 때문에 지워도 동일하게 동작함
@@ -130,7 +132,6 @@ function EducationLineChart (this: any, idx: number, year: string) {
       }
     });
 
-    console.log(lineChartArr[idx].title + districtArr);
     data['data'].map((item: any) => {
       delete item['period'];
       delete item['district'];
@@ -143,7 +144,7 @@ function EducationLineChart (this: any, idx: number, year: string) {
       categories: districtArr,
       series: tempDataKeys.map((itemName: string) => {
         return {
-          name: itemName,
+          name: educationAttr[itemName],
           data: data['data'].map((item: any) => {
             return item[itemName];
           }),
@@ -178,6 +179,9 @@ function EducationColumnChart (this: any, idx: number, year: string) {
     xAxis: {
         title: '',
     },
+    tooltip: {
+      suffix: '명 (개)',
+    },
     legend: {
       align: 'top',
       showCheckbox: false,
@@ -209,7 +213,7 @@ function EducationColumnChart (this: any, idx: number, year: string) {
       delete item['subType'];
     });
     let dataField = {
-      categories: Object.keys(data['data'][0]),
+      categories: Object.keys(data['data'][0]).map((item: string) => educationAttr[item]),
       series: [
         {
           name: 'Data',

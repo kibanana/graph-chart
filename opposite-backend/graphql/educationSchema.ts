@@ -125,8 +125,8 @@ type SeoulSchoolStatistics {
 
   parentNum: Int
   subTeacherNum: Int
-  subTeacheMaleNum: Int
-  subTeacheFemaleNum: Int
+  subTeacherMaleNum: Int
+  subTeacherFemaleNum: Int
   subEmployeeNum: Int
   subEmployeeMaleNum: Int
   subEmployeeFemaleNum: Int

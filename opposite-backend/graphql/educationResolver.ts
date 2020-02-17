@@ -187,8 +187,8 @@ const resolvers = {
         
           parentNum: Number(elem['GYE_2'][0]),
           subTeacherNum: Number(elem['SOGYE_1'][0]),
-          subTeacheMaleNum: Number(elem['NAMJA_2'][0]),
-          subTeacheFemaleNum: Number(elem['YEOJA_2'][0]),
+          subTeacherMaleNum: Number(elem['NAMJA_2'][0]),
+          subTeacherFemaleNum: Number(elem['YEOJA_2'][0]),
           subEmployeeNum: Number(elem['SOGYE_2'][0]),
           subEmployeeMaleNum: Number(elem['NAMJA_3'][0]),
           subEmployeeFemaleNum: Number(elem['YEOJA_3'][0]),

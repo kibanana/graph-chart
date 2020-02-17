@@ -148,8 +148,8 @@ query getSeoulSchoolStatistics($year: String!) {
     studentFemaleNum
     parentNum
     subTeacherNum
-    subTeacheMaleNum
-    subTeacheFemaleNum
+    subTeacherMaleNum
+    subTeacherFemaleNum
     subEmployeeNum
     subEmployeeMaleNum
     subEmployeeFemaleNum
