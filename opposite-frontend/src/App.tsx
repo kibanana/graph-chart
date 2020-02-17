@@ -8,16 +8,18 @@ import { Education } from './Education';
 
 function App() {
   return (
-    <ApolloProvider client={apolloClient}>
-      <ApolloHooksProvider client={apolloClient}>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={Education}/>
-            <Route path = "/:year" component = {Education} />
-          </Switch>
-        </BrowserRouter>
-      </ApolloHooksProvider>
-    </ApolloProvider>
+    <div className="App">
+      <ApolloProvider client={apolloClient}>
+        <ApolloHooksProvider client={apolloClient}>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/" component={Education}/>
+              <Route path = "/:year" component = {Education} />
+            </Switch>
+          </BrowserRouter>
+        </ApolloHooksProvider>
+      </ApolloProvider>
+    </div>
   );
 }
 

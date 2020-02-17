@@ -21,6 +21,7 @@ class YearSelect extends React.Component<{ min: string, max: string, value: stri
       <form>
         <label>
           통계 연도를 선택해주세요
+          <br />
           <select value={this.state.value} onChange={this.handleChange}>
             {optionArr}
           </select>
