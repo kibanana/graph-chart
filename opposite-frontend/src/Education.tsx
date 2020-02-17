@@ -17,25 +17,60 @@ const Container = styled.div`
   justify-items: center;
 `;
 
-const chartTitleArr = [
-  '서울시 유치원 통계',
-  '서울시 초등학교 통계',
-  '서울시 중학교 (국·공립) 통계',
-  '서울시 중학교 (사립) 통계',
-  '서울시 상급학교 진학률 통계',
-  '서울시 학교 총괄 통계',
-  '서울시 학급당 학생수 (구별) 통계',
-  '서울시 대학교 통계',
-  '서울시 대학원 통계',
+const chartDataArr = [
+  {
+    title: '서울시 유치원 통계',
+    min: '2016',
+    max: '2018',
+  },
+  {
+    title: '서울시 초등학교 통계',
+    min: '2017',
+    max: '2017',
+  },
+  {
+    title: '서울시 중학교 (국·공립) 통계',
+    min: '2017',
+    max: '2017',
+  },
+  {
+    title: '서울시 중학교 (사립) 통계',
+    min: '2017',
+    max: '2017',
+  },
+  {
+    title: '서울시 상급학교 진학률 통계',
+    min: '2017',
+    max: '2017',
+  },
+  {
+    title: '서울시 학교 총괄 통계',
+    min: '2017',
+    max: '2017',
+  },
+  {
+    title: '서울시 학급당 학생수 (구별) 통계',
+    min: '2016',
+    max: '2016',
+  },
+  {
+    title: '서울시 대학교 통계',
+    min: '2017',
+    max: '2017',
+  },
+  {
+    title: '서울시 대학원 통계',
+    min: '2017',
+    max: '2017',
+  },
 ];
 
-function Education (this: any) {
-  let { year } = useParams();
-  let options = {
+function EducationChart (this: any, idx: number, year: string) {
+  const options = {
     chart: {
-          width: 2000,
+          width: 1500,
           height: 600,
-          title: `${chartTitleArr[0]} (${year || '2018'})`,
+          title: '',
       },
       yAxis: {
           title: '사람수, 개수',
@@ -43,7 +78,6 @@ function Education (this: any) {
       },
       xAxis: {
           title: '지역',
-          tickInterval: 'auto',
       },
       series: {
         spline: true,
@@ -67,16 +101,16 @@ function Education (this: any) {
       ]
     }
   };
-  
-  const { data, error, loading } = useQuery(queriesArr[0], {
-    variables: { year: year || '2018'},
+
+  const { data, error, loading } = useQuery(queriesArr[idx], {
+    variables: { year: year || chartDataArr[idx].max},
     fetchPolicy: 'cache-and-network',
   });
-
+  options['chart']['title'] = `${chartDataArr[idx].title} (${year || chartDataArr[idx].max})`;
   if (loading) {
-    return <span>Loading</span>;
+    return <span key={'chart'+idx}>Loading</span>;
   } else if (!loading && data && data['data'].length) {
-    const districtArr = data['data'].map((item: any) => item['district']);
+    const districtArr = data['data'].map((item: any) => item['district'] || item['parentType']);
     data['data'].map((item: any) => {
       delete item['period'];
       delete item['district'];
@@ -94,26 +128,46 @@ function Education (this: any) {
         };
       }),
     };
-    return (
-      <Container>
-        <Helmet>
-          <title>Education : Society's Opposite Side Visualization</title>
-          <link rel="stylesheet" href="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.css" />
-          <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js" />
-        </Helmet>
-        <React.Fragment>
-          <div className="title">Society's Opposite Side Visualization</div>
-          <YearSelect min="2016" max="2018" value={year || "2018"} />
-          <div>
-            <LineChart data={dataField} options={Object.assign(options, themeOption)} />
-          </div>
-        </React.Fragment>
-      </Container>
-    );
+    let tempChart = 
+    <React.Fragment key={'chart'+idx}>
+      <div>
+      <YearSelect min={chartDataArr[idx].min} max={chartDataArr[idx].max} value={year || chartDataArr[idx].max} />
+      <LineChart data={dataField} options={Object.assign(options, themeOption)} />
+      </div>
+    </React.Fragment>;
+    return tempChart;
+    ;
   } else {
-    console.log(error);
-    return <span>Something is wrong</span>;
+    console.error(error);
+    return <span key={'chart'+idx}>Something is wrong</span>;
   }
+}
+
+function Education (this: any) {
+  let { year } = useParams();
+
+  const chartArr: Array<any> = [];
+
+  for (let idx = 0; idx < chartDataArr.length; idx++) {
+    let tempElem = EducationChart(idx, year || chartDataArr[idx].max);
+    chartArr.push(tempElem);
+  }
+  return (
+    <Container>
+      <Helmet>
+        <title>Education : Society's Opposite Side Visualization</title>
+        <script src="https://cdn.jsdelivr.net/npm/wheelnav@1.7.1/js/dist/raphael.min.js"></script>
+        <script src="https://unpkg.com/tui-code-snippet"></script>
+        <link rel="stylesheet" href="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.css" />
+        <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js" />
+      </Helmet>
+      
+      <React.Fragment>
+        <div className="title">Society's Opposite Side Visualization</div>
+        {chartArr}
+      </React.Fragment>
+    </Container>
+  );
 }
 
 export { Education };

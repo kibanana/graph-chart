@@ -48,7 +48,6 @@ const resolvers = {
     },
     getElementarySchool: async (_parent: any, { year }: any) => {
       const convertedResult = await getElementarySchool(year);
-      console.log(JSON.parse(convertedResult)['octastatapi201']['row']);
       const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi201']['row'];
       
       const graphqlResult: any[] = [];
@@ -76,7 +75,6 @@ const resolvers = {
     },
     getMiddleSchool: async (_parent: any, { year }: any) => {
       const convertedResult = await getMiddleSchool(year);
-      console.log(convertedResult);
       const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi202']['row'];
       
       const graphqlResult: any[] = [];
@@ -129,7 +127,6 @@ const resolvers = {
     },
     getAdvancedSchoolEntranceRate: async (_parent: any, { year }: any) => {
       const convertedResult = await getAdvancedSchoolEntranceRate(year);
-      console.log(convertedResult);
       const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi197']['row'];
       
       const graphqlResult: any[] = [];
@@ -172,7 +169,6 @@ const resolvers = {
     },
     getSeoulSchoolStatistics: async (_parent: any, { year }: any) => {
       const convertedResult = await getSeoulSchoolStatistics(year);
-      console.log(convertedResult);
       const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi199']['row'];
       
       const graphqlResult: any[] = [];
@@ -204,7 +200,6 @@ const resolvers = {
     },
     getClassStudentNum: async (_parent: any, { year }: any) => {
       const convertedResult = await getClassStudentNum(year);
-      console.log(convertedResult);
       const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi542']['row'];
       
       const graphqlResult: any[] = [];
@@ -234,7 +229,6 @@ const resolvers = {
     },
     getUniversity: async (_parent: any, { year }: any) => {
       const convertedResult = await getUniversity(year);
-      console.log(convertedResult);
       const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi210']['row'];
       
       const graphqlResult: any[] = [];
@@ -263,7 +257,6 @@ const resolvers = {
     },
     getGraduateSchool: async (_parent: any, { year }: any) => {
       const convertedResult = await getGraduateSchool(year);
-      console.log(convertedResult);
       const convertedTempResult: any[] = JSON.parse(convertedResult)['octastatapi211']['row'];
       
       const graphqlResult: any[] = [];
