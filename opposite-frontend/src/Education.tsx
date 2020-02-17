@@ -108,7 +108,7 @@ function EducationChart (this: any, idx: number, year: string) {
   });
   options['chart']['title'] = `${chartDataArr[idx].title} (${year || chartDataArr[idx].max})`;
   if (loading) {
-    return <span key={'chart'+idx}>Loading</span>;
+    return <div className="spinner-border text-muted" key={'chart'+idx}></div>
   } else if (!loading && data && data['data'].length) {
     const districtArr = data['data'].map((item: any) => item['district'] || item['parentType']);
     data['data'].map((item: any) => {
@@ -139,7 +139,6 @@ function EducationChart (this: any, idx: number, year: string) {
     ;
   } else {
     console.error(error);
-    return <span key={'chart'+idx}>Something is wrong</span>;
   }
 }
 
@@ -156,8 +155,12 @@ function Education (this: any) {
     <Container>
       <Helmet>
         <title>Education : Society's Opposite Side Visualization</title>
-        <script src="https://cdn.jsdelivr.net/npm/wheelnav@1.7.1/js/dist/raphael.min.js"></script>
-        <script src="https://unpkg.com/tui-code-snippet"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" />
+        <script src="https://unpkg.com/tui-code-snippet" />
         <link rel="stylesheet" href="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.css" />
         <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js" />
       </Helmet>
