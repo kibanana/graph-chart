@@ -152,7 +152,7 @@ function EducationLineChart (this: any, idx: number, year: string) {
     };
     let tempChart = 
     <React.Fragment key={idx}>
-      <div>
+      <div className="wrapper">
         <YearSelect min={lineChartArr[idx].min} max={lineChartArr[idx].max} value={year || lineChartArr[idx].max} />
         <LineChart data={dataField} options={Object.assign(options, themeOption)} />
       </div>
@@ -199,7 +199,7 @@ function EducationColumnChart (this: any, idx: number, year: string) {
   });
   options['chart']['title'] = `${ColumnChartArr[idx].title} (${year || ColumnChartArr[idx].max})`;
   if (loading) {
-    return <div className="spinner-border text-muted" key={'chart'+(lineChartArr.length + idx)}></div>
+    return <div className="spinner-border text-muted" key={'chart'+(lineChartArr.length + idx)} />;
   } else if (!loading && data && data['data'].length) {
     data['data'].map((item: any) => {
       delete item['period'];
@@ -219,7 +219,7 @@ function EducationColumnChart (this: any, idx: number, year: string) {
     };
     let tempChart = 
     <React.Fragment key={(lineChartArr.length + idx)}>
-      <div>
+      <div className="wrapper">
         <YearSelect min={ColumnChartArr[idx].min} max={ColumnChartArr[idx].max} value={year || ColumnChartArr[idx].max} />
         <ColumnChart data={dataField} options={Object.assign(options, themeOption)} />
       </div>
@@ -243,11 +243,11 @@ function Education (this: any) {
     chartArr.push(tempElem);
   }
   return (
-    <Container>
+    <Container id="container">
       <Helmet>
         <title>Education : Society's Opposite Side Visualization</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&display=swap&subset=korean" rel="stylesheet"></link>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" />
@@ -257,13 +257,11 @@ function Education (this: any) {
         <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js" />
       </Helmet>
       
-      <React.Fragment>
-        <h2 className="title">Society's Opposite Side Visualization</h2>
-        {chartArr}
-        {/* <For of={lineChartArr} as={item =>
-          EducationLineChart(lineChartArr.indexOf(item), year || item.max)
-        }/> */}
-      </React.Fragment>
+      <h2 className="title">Society's Opposite Side Visualization</h2>
+      {chartArr}
+      {/* <For of={lineChartArr} as={item =>
+        EducationLineChart(lineChartArr.indexOf(item), year || item.max)
+      }/> */}
     </Container>
   );
 }

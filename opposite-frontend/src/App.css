@@ -3,6 +3,9 @@
 .App {
   font-family: 'Nanum Gothic Coding', monospace;
   text-align: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: auto;
 }
 
 .App-logo {
