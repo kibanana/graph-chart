@@ -17,6 +17,11 @@ class YearSelect extends React.Component<{ min: string, max: string, value: stri
     for (let i = Number(this.props.min); i <= Number(this.props.max); i++) {
       optionArr.push(<option value={i} key={i}>{i} 년도</option>)
     }
+    if (optionArr.length <= 1) {
+      return (
+        <small><i>1년치 자료만 제공하는 통계입니다</i></small>
+      )
+    }
     return (
       <form>
         <label>

@@ -15,3 +15,7 @@ html, body {
   color: #BFB5D7;
   background: white;
 }
+
+small {
+  float: left;
+}
