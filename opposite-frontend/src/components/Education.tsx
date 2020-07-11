@@ -211,7 +211,7 @@ function EducationColumnChart (this: any, idx: number, year: string) {
       delete item['parentType'];
       delete item['subType'];
     });
-    let dataField = {
+    const dataField = {
       categories: Object.keys(data['data'][0]).map((item: string) => educationAttr[item]),
       series: [
         {
@@ -220,7 +220,7 @@ function EducationColumnChart (this: any, idx: number, year: string) {
         }
       ],
     };
-    let tempChart = 
+    const tempChart = 
     <React.Fragment key={(lineChartArr.length + idx)}>
       <div className="wrapper">
         <YearSelect min={ColumnChartArr[idx].min} max={ColumnChartArr[idx].max} value={year || ColumnChartArr[idx].max} />
@@ -260,11 +260,10 @@ function Education (this: any) {
         <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js" />
       </Helmet>
       
-      <h2 className="title">Society's Opposite Side Visualization</h2>
-      {chartArr}
-      {/* <For of={lineChartArr} as={item =>
-        EducationLineChart(lineChartArr.indexOf(item), year || item.max)
-      }/> */}
+      <div>
+        <h2 className="title">Society's Opposite Side Visualization</h2>
+        {chartArr}
+      </div>
     </Container>
   );
 }

@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import * as config from './educationConfig';
+import * as config from '../config';
 import { Parser } from 'xml2js';
 
 const parser = new Parser();
