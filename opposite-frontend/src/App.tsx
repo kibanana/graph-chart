@@ -4,7 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
 import apolloClient from './apolloClient';
 import './App.css';
-import { Education } from './Education';
+import { Education } from './components/Education';
 
 function App() {
   return (

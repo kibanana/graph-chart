@@ -1,13 +1,12 @@
 import React from 'react';
-import { For } from 'react-loops'
 import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
+import styled from 'styled-components';
 import queriesArr from './educationQueries';
 import educationAttr from './educationAttr';
-import './Education.css';
 import YearSelect from './yearSelect';
+import './Education.css';
 const toastui = require('@toast-ui/react-chart');
 const LineChart = toastui.LineChart;
 const ColumnChart = toastui.ColumnChart;

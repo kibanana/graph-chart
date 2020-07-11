@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class YearSelect extends React.Component<{ min: string, max: string, value: string }, { value: string }> {
+class YearSelect extends Component<{ min: string, max: string, value: string }, { value: string }> {
   constructor(props: any) {
     super(props);
     this.state = { value: this.props.value };
