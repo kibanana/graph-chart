@@ -133,7 +133,6 @@ function EducationLineChart (this: any, idx: number, year: string) {
 
     data['data'].map((item: any) => {
       delete item['period'];
-      delete item['district'];
       delete item['__typename'];
       delete item['parentType'];
       delete item['subType'];
