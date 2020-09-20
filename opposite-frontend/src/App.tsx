@@ -14,7 +14,8 @@ function App() {
           <BrowserRouter>
             <Switch>
               <Route exact path="/" component={Education}/>
-              <Route path = "/:year" component = {Education} />
+              <Route path="/education" component={Education}/>
+              <Route path = "/education/:year" component = {Education} />
             </Switch>
           </BrowserRouter>
         </ApolloHooksProvider>

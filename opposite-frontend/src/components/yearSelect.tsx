@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { InputLabel, Select, MenuItem } from '@material-ui/core';
 
 class YearSelect extends Component<{ min: string, max: string, value: string }, { value: string }> {
   constructor(props: any) {
@@ -8,14 +9,14 @@ class YearSelect extends Component<{ min: string, max: string, value: string }, 
   }
 
   handleChange(event: any) {
-    this.setState({value: event.target.value});
-    document.location.href = '/' + event.target.value;
+    this.setState({ value: event.target.value });
+    document.location.href = '/education/' + event.target.value;
   }
 
   render() {
     const optionArr = [];
     for (let i = Number(this.props.min); i <= Number(this.props.max); i++) {
-      optionArr.push(<option value={i} key={i}>{i} 년도</option>)
+      optionArr.push(<MenuItem value={i} key={i}>{i} 년도</MenuItem>)
     }
     if (optionArr.length <= 1) {
       return (
@@ -23,15 +24,12 @@ class YearSelect extends Component<{ min: string, max: string, value: string }, 
       )
     }
     return (
-      <form>
-        <label>
-          통계 연도를 선택해주세요
-          <br />
-          <select value={this.state.value} onChange={this.handleChange}>
-            {optionArr}
-          </select>
-        </label>
-      </form>
+      <>
+        <InputLabel id="year">통계 연도를 선택해주세요</InputLabel>
+        <Select labelId="year" id="select" value={this.state.value} onChange={this.handleChange}>
+          {optionArr}
+        </Select>
+      </>
     );
   }
 }

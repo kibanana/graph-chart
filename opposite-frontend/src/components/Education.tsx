@@ -2,21 +2,14 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import styled from 'styled-components';
-import queriesArr from './educationQueries';
-import educationAttr from './educationAttr';
+import { Container, Paper, Card } from '@material-ui/core';
+import queriesArr from '../lib/educationQueries';
+import educationAttr from '../lib/educationAttr';
 import YearSelect from './yearSelect';
-import './Education.css';
+import './Education.scss';
 const toastui = require('@toast-ui/react-chart');
 const LineChart = toastui.LineChart;
 const ColumnChart = toastui.ColumnChart;
-
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 0.7fr);
-  flex-wrap: wrap;
-  justify-items: center;
-`;
 
 interface IChart {
   title: string;
@@ -78,39 +71,39 @@ const ColumnChartArr: IChart[] = [
 function EducationLineChart (this: any, idx: number, year: string) {
   const options = {
     chart: {
-        width: 1500,
-        height: 600,
+      width: 1500,
+      height: 600,
+      title: '',
+    },
+    yAxis: {
         title: '',
-      },
-      yAxis: {
-          title: '',
-          suffix: '명 (개)',
-          pointOnColumn: true,
-      },
-      xAxis: {
-        title: '구분',
-      },
-      series: {
-        spline: true,
-        showDot: true,
-        zoomable: true,
-      },
-      tooltip: {
         suffix: '명 (개)',
-        grouped: true,
-      },
-      // 밑 속성은 default기 때문에 지워도 동일하게 동작함
-      legend: {
-        showCheckbox: true,
-        visible: true,
-      },
+        pointOnColumn: true,
+    },
+    xAxis: {
+      title: '구분',
+    },
+    series: {
+      spline: true,
+      showDot: true,
+      zoomable: true,
+    },
+    tooltip: {
+      suffix: '명 (개)',
+      grouped: true,
+    },
+    // 밑 속성은 default기 때문에 지워도 동일하게 동작함
+    legend: {
+      showCheckbox: true,
+      visible: true,
+    },
   };
   
   const themeOption = {
     series: {
       colors: [
-          '#83b14e', '#458a3f', '#295ba0', '#2a4175', '#289399',
-          '#289399', '#617178', '#8a9a9a', '#516f7d', '#dddddd',
+        '#83b14e', '#458a3f', '#295ba0', '#2a4175', '#289399',
+        '#289399', '#617178', '#8a9a9a', '#516f7d', '#dddddd',
       ]
     }
   };
@@ -150,12 +143,10 @@ function EducationLineChart (this: any, idx: number, year: string) {
       }),
     };
     let tempChart = 
-    <React.Fragment key={idx}>
-      <div className="wrapper">
-        <YearSelect min={lineChartArr[idx].min} max={lineChartArr[idx].max} value={year || lineChartArr[idx].max} />
-        <LineChart data={dataField} options={Object.assign(options, themeOption)} />
-      </div>
-    </React.Fragment>;
+    <Paper key={idx}>
+      <YearSelect min={lineChartArr[idx].min} max={lineChartArr[idx].max} value={year || lineChartArr[idx].max} />
+      <LineChart data={dataField} options={Object.assign(options, themeOption)} />
+    </Paper>;
     return tempChart;
     ;
   } else {
@@ -189,8 +180,8 @@ function EducationColumnChart (this: any, idx: number, year: string) {
   const themeOption = {
     series: {
       colors: [
-          '#83b14e', '#458a3f', '#295ba0', '#2a4175', '#289399',
-          '#289399', '#617178', '#8a9a9a', '#516f7d', '#dddddd',
+        '#83b14e', '#458a3f', '#295ba0', '#2a4175', '#289399',
+        '#289399', '#617178', '#8a9a9a', '#516f7d', '#dddddd',
       ]
     }
   };
@@ -220,12 +211,10 @@ function EducationColumnChart (this: any, idx: number, year: string) {
       ],
     };
     const tempChart = 
-    <React.Fragment key={(lineChartArr.length + idx)}>
-      <div className="wrapper">
-        <YearSelect min={ColumnChartArr[idx].min} max={ColumnChartArr[idx].max} value={year || ColumnChartArr[idx].max} />
-        <ColumnChart data={dataField} options={Object.assign(options, themeOption)} />
-      </div>
-    </React.Fragment>;
+    <Paper key={(lineChartArr.length + idx)}>
+      <YearSelect min={ColumnChartArr[idx].min} max={ColumnChartArr[idx].max} value={year || ColumnChartArr[idx].max} />
+      <ColumnChart data={dataField} options={Object.assign(options, themeOption)} />
+    </Paper>;
     return tempChart;
     ;
   } else {
@@ -234,7 +223,7 @@ function EducationColumnChart (this: any, idx: number, year: string) {
 }
 
 function Education (this: any) {
-  let { year } = useParams();
+  let { year }: any = useParams();
   const chartArr: Array<any> = [];
   for (let idx = 0; idx < lineChartArr.length; idx++) {
     let tempElem = EducationLineChart(idx, year || lineChartArr[idx].max);
@@ -247,7 +236,7 @@ function Education (this: any) {
   return (
     <Container id="container">
       <Helmet>
-        <title>Education : Society's Opposite Side Visualization</title>
+        <title>교육 : Graph Chart</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&display=swap&subset=korean" rel="stylesheet"></link>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -258,11 +247,9 @@ function Education (this: any) {
         <link rel="stylesheet" href="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.css" />
         <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js" />
       </Helmet>
-      
-      <div>
-        <h2 className="title">Society's Opposite Side Visualization</h2>
-        {chartArr}
-      </div>
+
+      <h2 className="title">교육</h2>
+      {chartArr}
     </Container>
   );
 }
